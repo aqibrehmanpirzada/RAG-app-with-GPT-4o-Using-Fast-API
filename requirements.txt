@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+langchain_openai
+langchain_community
+langchain_text_splitters
+sentence-transformers
+langchain_text_splitters
+pydantic
+python-multipart
+requests
