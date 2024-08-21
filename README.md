@@ -1,4 +1,4 @@
-# Chat with Documents
+# RAG App with GPT 4o Using Fast API 
 
 ## Overview
 
