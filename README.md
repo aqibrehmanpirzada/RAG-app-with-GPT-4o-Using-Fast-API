@@ -28,8 +28,8 @@ This project is a web application that allows users to interact with their PDF d
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/chat-with-documents.git
-    cd chat-with-documents
+    git clone https://github.com/aqibrehmanpirzada/RAG-app-with-GPT-4o-Using-Fast-API.git
+    cd RAG-app-with-GPT-4o-Using-Fast-API
     ```
 
 2. Create a virtual environment:
@@ -69,7 +69,7 @@ This project is a web application that allows users to interact with their PDF d
 1. Start the FastAPI server:
 
     ```bash
-    uvicorn app:app --reload
+    uvicorn main:app --reload
     ```
 
 2. Open your browser and navigate to `http://localhost:8000` to access the application.
@@ -96,5 +96,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or support, please reach out to [your-email@example.com](mailto:your-email@example.com).
+For any questions or support, please reach out to [aqibrehmanpirzada75@gmail.com](aqibrehmanpirzada75@gmail.com).
 
