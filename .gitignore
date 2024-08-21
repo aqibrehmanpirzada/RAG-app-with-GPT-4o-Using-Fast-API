@@ -1,0 +1,49 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# Temporary files
+tmp/
+*.tmp
+
+# IDE/editor settings
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Ignore the main.py file if it's not needed in the repository
+main.py
+
+# Ignore README.md if not needed in the repository
+README.md
+
+# Ignore app.py if not needed in the repository
+app.py
+
+# Ignore utils.py if not needed in the repository
+utils.py
+
+# Ignore streaming.py if not needed in the repository
+streaming.py
+
+# Ignore templates folder if not needed in the repository
+templates/
+
+# Ignore the folder if not needed in the repository
+tmp/

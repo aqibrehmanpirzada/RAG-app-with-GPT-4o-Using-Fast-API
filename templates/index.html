@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input[type="file"], 
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357abd;
+        }
+
+        #response {
+            margin-top: 2rem;
+        }
+
+        #response h2 {
+            color: #4a90e2;
+        }
+
+        #response p {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        #response h3 {
+            margin-top: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat with Your Documents</h1>
+        <form action="/upload/" method="post" enctype="multipart/form-data">
+            <label for="files">Upload PDF files:</label>
+            <input type="file" name="files" id="files" multiple accept=".pdf" required>
+            <label for="user_query">Ask me anything:</label>
+            <input type="text" name="user_query" id="user_query" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="response"></div>
+    </div>
+    <script>
+        document.querySelector('form').onsubmit = async function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            let response = await fetch('/upload/', {
+                method: 'POST',
+                body: formData
+            });
+            let result = await response.json();
+            document.getElementById('response').innerHTML = `
+                <h2>Answer:</h2>
+                <p>${result.answer}</p>
+                <h3>Sources:</h3>
+                ${result.sources.map(source => `
+                    <p>File: ${source.filename}, Page: ${source.page}<br>${source.content}</p>
+                `).join('')}
+            `;
+        };
+    </script>
+</body>
+</html>
